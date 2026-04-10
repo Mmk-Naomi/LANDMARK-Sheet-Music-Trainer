@@ -1,0 +1,46 @@
+[gd_resource type="Theme" format=3 uid="uid://ct5dkc58428ed"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1rve"]
+bg_color = Color(2.9359758e-06, 0.72108597, 0.31256405, 1)
+
+[sub_resource type="DPITexture" id="DPITexture_i1rve"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_pis3i"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_r1fdp"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_vqshi"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sciw0"]
+bg_color = Color(0.42256954, 0.66947764, 0.45177191, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvhpn"]
+bg_color = Color(0.85853714, 0.44609576, 0.6084818, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycp42"]
+bg_color = Color(0.5379748, 0.6041981, 0.71875525, 1)
+
+[resource]
+default_font_size = 30
+CheckButton/styles/disabled = SubResource("StyleBoxFlat_i1rve")
+CheckButton/styles/pressed = null
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = SubResource("DPITexture_i1rve")
+HSlider/icons/grabber_disabled = SubResource("DPITexture_pis3i")
+HSlider/icons/grabber_highlight = SubResource("DPITexture_r1fdp")
+HSlider/icons/tick = SubResource("DPITexture_vqshi")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_sciw0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vvhpn")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ycp42")
+OptionButton/constants/arrow_margin = 0
+OptionButton/font_sizes/font_size = 30

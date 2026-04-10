@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://copl47v4d1d4c"]
+
+[ext_resource type="Script" uid="uid://fl5b66n7jnse" path="res://Scenes/note.gd" id="1_ucs03"]
+
+[node name="Note" type="Sprite2D" unique_id=583492813]
+script = ExtResource("1_ucs03")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c67kvmwj635dq"]
+
+[ext_resource type="Texture2D" uid="uid://p7420d7tv5gc" path="res://Assets/key1.png" id="1_dus47"]
+[ext_resource type="Script" uid="uid://cvdaxnjpwrl78" path="res://Scenes/piano_key.gd" id="2_ltfpc"]
+
+[node name="PianoKey" type="TextureButton" unique_id=856006207]
+offset_right = 169.0
+offset_bottom = 417.0
+texture_normal = ExtResource("1_dus47")
+script = ExtResource("2_ltfpc")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

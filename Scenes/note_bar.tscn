@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbi4ne0dde3e3"]
+
+[ext_resource type="Texture2D" uid="uid://28hoamyi3b4m" path="res://Assets/note-bar.png" id="1_0capo"]
+
+[node name="Sprite2D" type="Sprite2D" unique_id=176388236]
+texture = ExtResource("1_0capo")

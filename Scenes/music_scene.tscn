@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://caqth5w2d3sfl"]
+
+[ext_resource type="Texture2D" uid="uid://br3f6g7mdcg7m" path="res://Assets/staff-asset.png" id="1_7qfqm"]
+[ext_resource type="Script" uid="uid://bamc453v483ea" path="res://Scenes/music_scene.gd" id="1_on8qa"]
+[ext_resource type="PackedScene" uid="uid://c67kvmwj635dq" path="res://Scenes/piano_key.tscn" id="3_8311a"]
+[ext_resource type="Texture2D" uid="uid://kop04p3krtjd" path="res://Assets/key2.png" id="4_3desv"]
+[ext_resource type="Texture2D" uid="uid://1ua1lfngkqyq" path="res://Assets/key1-pressed.png" id="5_yja1l"]
+[ext_resource type="Texture2D" uid="uid://di5gn0btsg8gn" path="res://Assets/key2-pressed.png" id="7_13bi0"]
+[ext_resource type="Theme" uid="uid://dk1iwtbhwnpg4" path="res://Themes/chocoloate_mint_theme.tres" id="8_13bi0"]
+[ext_resource type="AudioStream" uid="uid://ci431ge48gn7p" path="res://Sound/B4.mp3" id="14_8lhpn"]
+
+[node name="Music Scene" type="Node2D" unique_id=1356975755]
+script = ExtResource("1_on8qa")
+
+[node name="NoteMarker" type="Marker2D" parent="." unique_id=144175008]
+position = Vector2(-300, -22)
+gizmo_extents = 21.9
+
+[node name="BackgroundControl" type="Control" parent="." unique_id=131209887]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_13bi0")
+
+[node name="Panel" type="Panel" parent="BackgroundControl" unique_id=1887872542]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -1.797
+anchor_bottom = -1.797
+offset_left = -422.0
+offset_top = -239.12
+offset_right = 427.0
+offset_bottom = 240.88
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundControl" unique_id=640452237]
+position = Vector2(0, -75)
+texture = ExtResource("1_7qfqm")
+metadata/_edit_lock_ = true
+
+[node name="KeyControl" type="Control" parent="." unique_id=1415381902]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="KeyControl" unique_id=1700634186]
+layout_mode = 0
+offset_left = -300.0
+offset_top = 190.0
+offset_right = 856.0
+offset_bottom = 601.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="KeyControl/HBoxContainer" unique_id=1750796944]
+unique_name_in_owner = true
+stream = ExtResource("14_8lhpn")
+bus = &"SFX"
+parameters/looping = false
+
+[node name="KeyC" parent="KeyControl/HBoxContainer" unique_id=1886878956 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_pressed = ExtResource("5_yja1l")
+
+[node name="KeyD" parent="KeyControl/HBoxContainer" unique_id=1872834211 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_normal = ExtResource("4_3desv")
+texture_pressed = ExtResource("7_13bi0")
+note = "D"
+
+[node name="KeyE" parent="KeyControl/HBoxContainer" unique_id=823741139 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_pressed = ExtResource("5_yja1l")
+flip_h = true
+note = "E"
+
+[node name="KeyF" parent="KeyControl/HBoxContainer" unique_id=500402197 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_pressed = ExtResource("5_yja1l")
+note = "F"
+
+[node name="KeyG" parent="KeyControl/HBoxContainer" unique_id=206123556 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_normal = ExtResource("4_3desv")
+texture_pressed = ExtResource("7_13bi0")
+note = "G"
+
+[node name="KeyA" parent="KeyControl/HBoxContainer" unique_id=1691632255 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_normal = ExtResource("4_3desv")
+texture_pressed = ExtResource("7_13bi0")
+note = "A"
+
+[node name="KeyB" parent="KeyControl/HBoxContainer" unique_id=321691668 groups=["pianokeys"] instance=ExtResource("3_8311a")]
+layout_mode = 2
+texture_pressed = ExtResource("5_yja1l")
+flip_h = true
+note = "B"
+
+[node name="KeyNotesText" type="HBoxContainer" parent="KeyControl" unique_id=2082579885]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -275.0
+offset_top = 330.0
+offset_right = 263.0
+offset_bottom = 393.0
+mouse_filter = 2
+theme_override_constants/separation = 58
+
+[node name="Label" type="Label" parent="KeyControl/KeyNotesText" unique_id=468456627]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "C"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="KeyControl/KeyNotesText" unique_id=1451233781]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "D"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="KeyControl/KeyNotesText" unique_id=1003220632]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "E"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="KeyControl/KeyNotesText" unique_id=1171339359]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "F"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="KeyControl/KeyNotesText" unique_id=1621059221]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "G"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="KeyControl/KeyNotesText" unique_id=1644015160]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "A"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="KeyControl/KeyNotesText" unique_id=1713883335]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_13bi0")
+text = "B"
+horizontal_alignment = 1
+
+[node name="NotesContainer" type="HBoxContainer" parent="." unique_id=1606952807]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0

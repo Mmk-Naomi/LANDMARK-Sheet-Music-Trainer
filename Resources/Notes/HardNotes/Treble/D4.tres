@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicNote" format=3 uid="uid://bhmh05yn7o6tu"]
+
+[ext_resource type="Script" uid="uid://doc86qchmqo8u" path="res://music_note.gd" id="1_tto48"]
+[ext_resource type="Texture2D" uid="uid://cbupgxdcjmlgr" path="res://Assets/music-note.png" id="2_tp8it"]
+
+[resource]
+script = ExtResource("1_tto48")
+noteName = "D4"
+texture = ExtResource("2_tp8it")
+note = "D"
+metadata/_custom_type_script = "uid://doc86qchmqo8u"

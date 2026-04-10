@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://c1hr4qhgw042o"]
+
+[ext_resource type="Script" uid="uid://cf2loswtqineq" path="res://Scenes/settings_menu.gd" id="1_7y5a0"]
+[ext_resource type="Theme" uid="uid://dk1iwtbhwnpg4" path="res://Themes/chocoloate_mint_theme.tres" id="2_rahb6"]
+[ext_resource type="Texture2D" uid="uid://d37o6txlrjft0" path="res://Assets/return.png" id="4_3etfd"]
+[ext_resource type="Theme" uid="uid://ct5dkc58428ed" path="res://Themes/Checkbox theme/check_box_theme.tres" id="4_h2y1r"]
+[ext_resource type="Texture2D" uid="uid://buk6pycp5xyht" path="res://Assets/exit.png" id="5_rahb6"]
+
+[sub_resource type="Theme" id="Theme_7y5a0"]
+
+[node name="SettingsMenu" type="CanvasLayer" unique_id=758296154]
+script = ExtResource("1_7y5a0")
+
+[node name="Control" type="Control" parent="." unique_id=891929804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("2_rahb6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1258241198]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = 15.0
+offset_right = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer" unique_id=1940468775]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=925840428]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19000001
+anchor_top = 0.048
+anchor_right = 0.812
+anchor_bottom = 0.69100004
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/VBoxContainer" unique_id=910962597]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_h2y1r")
+alignment = 1
+
+[node name="TrebleBass" type="OptionButton" parent="Control/VBoxContainer/BoxContainer" unique_id=1868824034]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_7y5a0")
+alignment = 1
+selected = 0
+item_count = 3
+popup/item_0/text = "Treble and bass clef"
+popup/item_0/id = 0
+popup/item_1/text = "Treble clef only"
+popup/item_1/id = 1
+popup/item_2/text = "Bass clef only"
+popup/item_2/id = 2
+
+[node name="Themes" type="OptionButton" parent="Control/VBoxContainer/BoxContainer" unique_id=678386328]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 7
+popup/item_0/text = "Chocolate Mint"
+popup/item_0/id = 0
+popup/item_1/text = "Strawberry"
+popup/item_1/id = 1
+popup/item_2/text = "Dark Chocolate"
+popup/item_2/id = 2
+popup/item_3/text = "Lemon"
+popup/item_3/id = 3
+popup/item_4/text = "Birthday Cake"
+popup/item_4/id = 4
+popup/item_5/text = "Red Velvet"
+popup/item_5/id = 5
+popup/item_6/text = "Chocolate Chip"
+popup/item_6/id = 6
+
+[node name="BoxContainer2" type="BoxContainer" parent="Control/VBoxContainer" unique_id=1404397617]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Difficulty" type="OptionButton" parent="Control/VBoxContainer/BoxContainer2" unique_id=1316932952]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_h2y1r")
+alignment = 1
+selected = 3
+item_count = 4
+popup/item_0/text = "All notes"
+popup/item_0/id = 0
+popup/item_1/text = "Landmark notes"
+popup/item_1/id = 1
+popup/item_2/text = "Easy (9 notes)"
+popup/item_2/id = 2
+popup/item_3/text = "Very easy"
+popup/item_3/id = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer" unique_id=749378184]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="AudioControl" type="HSlider" parent="Control/VBoxContainer/MarginContainer" unique_id=1324147718]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_rahb6")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="MuteButton" type="CheckButton" parent="Control/VBoxContainer" unique_id=113674487]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_h2y1r")
+text = "Mute "
+
+[node name="FullscreenToggle" type="CheckButton" parent="Control/VBoxContainer" unique_id=560663122]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_h2y1r")
+text = "Toggle fullscreen"
+
+[node name="NoteLetterButton" type="CheckButton" parent="Control/VBoxContainer" unique_id=930953411]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_h2y1r")
+text = "Show note letters"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1589262969]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=1359819278]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_rahb6")
+icon = ExtResource("4_3etfd")
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer/HBoxContainer" unique_id=1855189202]
+layout_mode = 2
+theme = ExtResource("2_rahb6")
+icon = ExtResource("5_rahb6")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1449124545]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="item_selected" from="Control/VBoxContainer/BoxContainer/TrebleBass" to="." method="_on_treble_bass_item_selected"]
+[connection signal="item_selected" from="Control/VBoxContainer/BoxContainer/Themes" to="." method="_on_themes_item_selected"]
+[connection signal="item_selected" from="Control/VBoxContainer/BoxContainer2/Difficulty" to="." method="_on_difficulty_item_selected"]
+[connection signal="value_changed" from="Control/VBoxContainer/MarginContainer/AudioControl" to="." method="_on_audio_control_value_changed"]
+[connection signal="toggled" from="Control/VBoxContainer/MuteButton" to="." method="_on_mute_button_toggled"]
+[connection signal="toggled" from="Control/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="toggled" from="Control/VBoxContainer/NoteLetterButton" to="." method="_on_note_letter_button_toggled"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
