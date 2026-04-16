@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Piano sight reading trainer"
+config/name="LANDMARK Sheet Music Trainer"
 run/main_scene="uid://bfn5haskljudc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=300

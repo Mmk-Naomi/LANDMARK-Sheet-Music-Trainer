@@ -117,6 +117,13 @@ func check_notes():
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.tween_property(%Cursor, "position:x", %Cursor.position.x + 200, 0.2)
 		#%Cursor.position.x += 200
+		var score_tween: Tween
+		if score_tween: score_tween.kill()
+		score_tween = create_tween()
+		score_tween.set_trans(Tween.TRANS_BACK)
+		score_tween.set_ease(Tween.EASE_IN)
+		score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.2, 1.2), 0.2)
+		score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.0, 1.0), 0.2)
 		
 		#Save the current score if it is higher than existing score, but do not update screen until player gets one wrong
 		update_high_score()
@@ -132,7 +139,17 @@ func check_notes():
 		active_panel_label.hide()
 	else:
 		GlobalVariables.new_note = false
-		%HiScoreLabel.text = str(high_score)
+		
+		
+		#TODO: Set a tween or shader that will make the score flash red when a note is pressed incorrectly
+		var minus_tween: Tween
+		if minus_tween: minus_tween.kill()
+		#minus_tween = create_tween()
+		#minus_tween.set_trans(Tween.TRANS_BACK)
+		#minus_tween.set_ease(Tween.EASE_IN)
+		#minus_tween.tween_property(%ScoreLabel, "modulate", Vector2(1.2, 1.2), 0.2)
+		#minus_tween.tween_property(%ScoreLabel, "scale", Vector2(1.0, 1.0), 0.2)
+	
 		current_score = 0
 		print("Incorrect" + str(current_score))
 		%ScoreLabel.text = str(current_score)
@@ -186,6 +203,17 @@ func load_score() -> void:
 func update_high_score() -> void:
 	if current_score > high_score:
 		high_score = current_score
+		
+		# Play an animation so that the player sees they have hit a new high score
+		%HiScoreLabel.text = str(high_score)
+		var score_tween: Tween
+		if score_tween: score_tween.kill()
+		score_tween = create_tween()
+		score_tween.set_trans(Tween.TRANS_BACK)
+		score_tween.set_ease(Tween.EASE_IN)
+		score_tween.tween_property(%HiScoreLabel, "scale", Vector2(1.2, 1.2), 0.2)
+		score_tween.tween_property(%HiScoreLabel, "scale", Vector2(1.0, 1.0), 0.2)
+		
 		match GlobalVariables.current_difficulty:
 			GlobalVariables.Difficulty.VERY_EASY:
 				very_easy_high_score = high_score
@@ -196,6 +224,7 @@ func update_high_score() -> void:
 			GlobalVariables.Difficulty.LANDMARK:
 				landmark_high_score = high_score
 		save_score()
+		
 
 func _on_menu_button_pressed() -> void:
 	settings_instance.visible = true

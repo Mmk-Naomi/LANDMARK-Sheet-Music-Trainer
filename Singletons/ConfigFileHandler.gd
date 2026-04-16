@@ -16,7 +16,7 @@ var audio_settings := {
 var game_settings := {
 	"show_notes": false,
 	"clef": 0,
-	"theme": 0,
+	"theme": 6,
 	"difficulty": 3,
 }
 

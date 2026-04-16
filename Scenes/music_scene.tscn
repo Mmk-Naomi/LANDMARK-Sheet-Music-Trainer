@@ -73,40 +73,40 @@ parameters/looping = false
 
 [node name="KeyC" parent="KeyControl/HBoxContainer" unique_id=1886878956 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
-texture_pressed = ExtResource("5_yja1l")
+texture_hover = ExtResource("5_yja1l")
 
 [node name="KeyD" parent="KeyControl/HBoxContainer" unique_id=1872834211 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
 texture_normal = ExtResource("4_3desv")
-texture_pressed = ExtResource("7_13bi0")
+texture_hover = ExtResource("7_13bi0")
 note = "D"
 
 [node name="KeyE" parent="KeyControl/HBoxContainer" unique_id=823741139 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
-texture_pressed = ExtResource("5_yja1l")
+texture_hover = ExtResource("5_yja1l")
 flip_h = true
 note = "E"
 
 [node name="KeyF" parent="KeyControl/HBoxContainer" unique_id=500402197 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
-texture_pressed = ExtResource("5_yja1l")
+texture_hover = ExtResource("5_yja1l")
 note = "F"
 
 [node name="KeyG" parent="KeyControl/HBoxContainer" unique_id=206123556 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
 texture_normal = ExtResource("4_3desv")
-texture_pressed = ExtResource("7_13bi0")
+texture_hover = ExtResource("7_13bi0")
 note = "G"
 
 [node name="KeyA" parent="KeyControl/HBoxContainer" unique_id=1691632255 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
 texture_normal = ExtResource("4_3desv")
-texture_pressed = ExtResource("7_13bi0")
+texture_hover = ExtResource("7_13bi0")
 note = "A"
 
 [node name="KeyB" parent="KeyControl/HBoxContainer" unique_id=321691668 groups=["pianokeys"] instance=ExtResource("3_8311a")]
 layout_mode = 2
-texture_pressed = ExtResource("5_yja1l")
+texture_hover = ExtResource("5_yja1l")
 flip_h = true
 note = "B"
 

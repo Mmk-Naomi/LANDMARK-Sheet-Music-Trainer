@@ -4,7 +4,6 @@ extends TextureButton
 
 @onready var asp = $"../AudioStreamPlayer"
 
-
 func _on_pressed() -> void:
 	GlobalVariables.player_note = note
 	choose_right_audio()

@@ -3,12 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://caqth5w2d3sfl" path="res://Scenes/music_scene.tscn" id="1_gl6un"]
 [ext_resource type="Script" uid="uid://b23o56ykf85" path="res://Scenes/game.gd" id="1_kldst"]
 [ext_resource type="Theme" uid="uid://dk1iwtbhwnpg4" path="res://Themes/chocoloate_mint_theme.tres" id="2_bf53h"]
+[ext_resource type="Shader" uid="uid://bv4slvkkbsefe" path="res://Shaders/number_increase.gdshader" id="4_71axn"]
 [ext_resource type="Texture2D" uid="uid://dnqebvcof0s21" path="res://Assets/score-symbol.png" id="4_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://d3314n11tro3m" path="res://Assets/star.png" id="5_bf53h"]
 [ext_resource type="Texture2D" uid="uid://cu37rp25a1ps3" path="res://Assets/eye.png" id="7_71axn"]
 [ext_resource type="Texture2D" uid="uid://da4ap3l4e7kq0" path="res://Assets/menu-icon.png" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://dmyq8gk1wwmtd" path="res://Assets/cursor.png" id="7_fgofq"]
 [ext_resource type="Texture2D" uid="uid://tkykyvhbi84u" path="res://Assets/bass-clef.png" id="9_71axn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71axn"]
+shader = ExtResource("4_71axn")
+shader_parameter/size = 1.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_2irst"]
 
@@ -58,11 +65,13 @@ offset_bottom = 72.0
 
 [node name="ScoreLabel" type="Label" parent="Control/ScoreLabelPanel" unique_id=1588708049]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_71axn")
 layout_mode = 0
 offset_left = 55.0
 offset_top = 1.0
 offset_right = 123.0
 offset_bottom = 56.0
+pivot_offset = Vector2(50, 25)
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
@@ -85,6 +94,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 55.0
+pivot_offset = Vector2(50, 25)
 theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
