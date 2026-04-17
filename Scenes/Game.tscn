@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bv4slvkkbsefe" path="res://Shaders/number_increase.gdshader" id="4_71axn"]
 [ext_resource type="Texture2D" uid="uid://dnqebvcof0s21" path="res://Assets/score-symbol.png" id="4_b2bpf"]
 [ext_resource type="Texture2D" uid="uid://d3314n11tro3m" path="res://Assets/star.png" id="5_bf53h"]
+[ext_resource type="Shader" uid="uid://bruvr3wol850b" path="res://Scenes/ScorePic.gdshader" id="5_dahhg"]
 [ext_resource type="Texture2D" uid="uid://cu37rp25a1ps3" path="res://Assets/eye.png" id="7_71axn"]
 [ext_resource type="Texture2D" uid="uid://da4ap3l4e7kq0" path="res://Assets/menu-icon.png" id="7_bf53h"]
 [ext_resource type="Texture2D" uid="uid://dmyq8gk1wwmtd" path="res://Assets/cursor.png" id="7_fgofq"]
@@ -16,6 +17,11 @@ shader = ExtResource("4_71axn")
 shader_parameter/size = 1.0
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3so38"]
+shader = ExtResource("5_dahhg")
+shader_parameter/color = Color(0.87612945, 0, 0, 1)
+shader_parameter/amount = 0.0
 
 [sub_resource type="Theme" id="Theme_2irst"]
 
@@ -76,7 +82,9 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/ScoreLabelPanel" unique_id=998548381]
+[node name="ScorePic" type="Sprite2D" parent="Control/ScoreLabelPanel" unique_id=998548381]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3so38")
 position = Vector2(27, 29)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_b2bpf")
