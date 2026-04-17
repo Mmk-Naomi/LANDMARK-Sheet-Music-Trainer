@@ -176,7 +176,9 @@ anchor_top = 0.22200002
 anchor_right = 0.147
 anchor_bottom = 0.586
 offset_bottom = 3.0517578e-05
+grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="ClefSprite" type="Sprite2D" parent="Control/ClefPanel" unique_id=967460159]
 unique_name_in_owner = true

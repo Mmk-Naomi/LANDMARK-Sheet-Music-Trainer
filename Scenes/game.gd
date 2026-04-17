@@ -67,13 +67,22 @@ func new_game():
 	tween.tween_property(%Cursor, "position:x", %MusicScene/NoteMarker.global_position.x, 0.3)
 	var clef_sprite = %ClefSprite
 	
+	#Some variables so that we can play animations when there's a new clef
+	var random_clef : int = 1
+	
 	#Choose random value between 0 and 1, treble being 1 and bass being 0
-	var random_clef = randi_range(0, 1)
+	random_clef = randi_range(0, 1)
+
 	# If either bass or treble is false, set to correct value
 	if GlobalVariables.is_bass == false:
 		random_clef = 1
 	if GlobalVariables.is_treble == false:
 		random_clef = 0
+		
+	clef_sprite.modulate.a = 0.0
+	var clef_tween = create_tween()
+	clef_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	clef_tween.tween_property(clef_sprite, "modulate:a", 1.0, 0.3)
 		
 	# if it is 1 then set current clef to treble
 	if random_clef == 1:
@@ -90,8 +99,9 @@ func new_game():
 		clef_sprite.texture = bass_sprite
 		clef_sprite.scale = Vector2(0.25, 0.25)
 		clef_sprite.position = Vector2(0, 45)
+		
 	GlobalVariables.random_clef_chosen.emit()
-	
+		
 	note_array = %MusicScene.note_array
 	active_panel_label.text = note_array[note_check_no] 
 	active_panel_label.visible = false
@@ -143,14 +153,16 @@ func check_notes():
 		GlobalVariables.new_note = false
 		
 		
-		#TODO: Set a tween or shader that will make the score flash red when a note is pressed incorrectly
+		#Set a tween or shader that will make the score flash red when a note is pressed incorrectly
 		var minus_tween: Tween
 		if minus_tween: minus_tween.kill()
 		minus_tween = create_tween()
 		minus_tween.set_trans(Tween.TRANS_BACK)
 		minus_tween.set_ease(Tween.EASE_IN)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.2)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.2)
+		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
+		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
+		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
+		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
 	
 		current_score = 0
 		print("Incorrect" + str(current_score))
@@ -267,7 +279,6 @@ func _load_theme() -> void:
 		var chocolate_chip = load("res://Themes/chocolate_chip_theme.tres")
 		control.theme = chocolate_chip
 		%BackgroundRect.color = Color(0.017, 0.004, 0.069, 1.0)
-
 
 func _on_show_active_note_pressed() -> void:
 	active_panel_label.visible = true
