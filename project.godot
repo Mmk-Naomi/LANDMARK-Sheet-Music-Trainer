@@ -45,3 +45,8 @@ enabled=PackedStringArray("res://addons/signal_lens/plugin.cfg")
 
 pianokeys=""
 notes=""
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -16,11 +16,10 @@ var landmark_high_score : int
 var note_check_no : int
 var menu_up : bool = false
 
-var cursor_pos : int
-
 const SAVE_PATH: String = "user://piano_high_score.save"
 
-
+#Tween variables
+var cursor_tween_finished: bool = true
 
 # Preloading the note scene
 var mynote = preload("res://Scenes/note.tscn")
@@ -163,7 +162,10 @@ func check_notes():
 		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
 		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
 		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
-	
+		
+		#Make cursor shake tween
+		
+		
 		current_score = 0
 		print("Incorrect" + str(current_score))
 		%ScoreLabel.text = str(current_score)
