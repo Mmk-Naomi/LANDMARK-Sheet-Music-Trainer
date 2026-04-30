@@ -112,63 +112,12 @@ func _physics_process(_delta: float) -> void:
 	
 func check_notes():
 	note_array = %MusicScene.note_array
-	
+		
 	if(GlobalVariables.player_note == note_array[note_check_no] and GlobalVariables.new_note == true):
-		#Check the current note against the generated notes. If correct, add to current score and move up the array.
-		current_score += 1
-		%ScoreLabel.text = str(current_score)
-		note_check_no += 1
-		print("Correct" + str(current_score))
-		print("Note check number" + str(note_check_no))
-		# Move cursor 200 pixels to the right
-		var tween = create_tween()
-		tween.set_trans(Tween.TRANS_BACK)
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(%Cursor, "position:x", %Cursor.position.x + 200, 0.2)
-		#%Cursor.position.x += 200
-		
-		#Animate the score label
-		var score_tween: Tween
-		if score_tween: score_tween.kill()
-		score_tween = create_tween()
-		score_tween.set_trans(Tween.TRANS_BACK)
-		score_tween.set_ease(Tween.EASE_IN)
-		score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.2, 1.2), 0.2)
-		score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.0, 1.0), 0.2)
-		
-		#Save the current score if it is higher than existing score, but do not update screen until player gets one wrong
-		update_high_score()
-	
-		#Set new_note to false for when the player next clicks
-		GlobalVariables.new_note = false
-		#If note_check_no is equal to our max number of notes, reset by running new_game()
-		if (note_check_no == GlobalVariables.note_number):
-			GlobalVariables.generate_new_notes = true
-			new_game()
-			
-		active_panel_label.text = note_array[note_check_no]
-		active_panel_label.hide()
+		increase_score()
 	else:
-		GlobalVariables.new_note = false
+		decrease_score()
 		
-		
-		#Set a tween or shader that will make the score flash red when a note is pressed incorrectly
-		var minus_tween: Tween
-		if minus_tween: minus_tween.kill()
-		minus_tween = create_tween()
-		minus_tween.set_trans(Tween.TRANS_BACK)
-		minus_tween.set_ease(Tween.EASE_IN)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
-		minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
-		
-		#Make cursor shake tween
-		
-		
-		current_score = 0
-		print("Incorrect" + str(current_score))
-		%ScoreLabel.text = str(current_score)
 			
 func _load_difficulty():
 	if GlobalVariables.current_difficulty == GlobalVariables.Difficulty.EASY:
@@ -240,7 +189,62 @@ func update_high_score() -> void:
 			GlobalVariables.Difficulty.LANDMARK:
 				landmark_high_score = high_score
 		save_score()
-		
+
+func increase_score() -> void:
+	current_score += 1
+	%ScoreLabel.text = str(current_score)
+	note_check_no += 1
+	print("Correct" + str(current_score))
+	print("Note check number" + str(note_check_no))
+	# Move cursor 200 pixels to the right
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(%Cursor, "position:x", %Cursor.position.x + 200, 0.2)
+	#%Cursor.position.x += 200
+	
+	#Animate the score label
+	var score_tween: Tween
+	if score_tween: score_tween.kill()
+	score_tween = create_tween()
+	score_tween.set_trans(Tween.TRANS_BACK)
+	score_tween.set_ease(Tween.EASE_IN)
+	score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.2, 1.2), 0.2)
+	score_tween.tween_property(%ScoreLabel, "scale", Vector2(1.0, 1.0), 0.2)
+	
+	#Save the current score if it is higher than existing score, but do not update screen until player gets one wrong
+	update_high_score()
+
+	#Set new_note to false for when the player next clicks
+	GlobalVariables.new_note = false
+	#If note_check_no is equal to our max number of notes, reset by running new_game()
+	if (note_check_no == GlobalVariables.note_number):
+		GlobalVariables.generate_new_notes = true
+		new_game()
+	
+	#Change note on hidden panel
+	active_panel_label.text = note_array[note_check_no]
+	active_panel_label.hide()
+	
+func decrease_score() -> void:
+	GlobalVariables.new_note = false
+	
+	#Set a tween or shader that will make the score flash red when a note is pressed incorrectly
+	var minus_tween: Tween
+	if minus_tween: minus_tween.kill()
+	minus_tween = create_tween()
+	minus_tween.set_trans(Tween.TRANS_BACK)
+	minus_tween.set_ease(Tween.EASE_IN)
+	minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
+	minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
+	minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 1.0, 0.1)
+	minus_tween.tween_property(%ScorePic.material, "shader_parameter/amount", 0.0, 0.1)
+	
+	#TODO: Make cursor shake tween
+	
+	current_score = 0
+	print("Incorrect" + str(current_score))
+	%ScoreLabel.text = str(current_score)
 
 func _on_menu_button_pressed() -> void:
 	settings_instance.visible = true
