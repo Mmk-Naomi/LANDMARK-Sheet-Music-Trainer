@@ -9,7 +9,9 @@
 [ext_resource type="Theme" uid="uid://dk1iwtbhwnpg4" path="res://Themes/chocoloate_mint_theme.tres" id="8_13bi0"]
 [ext_resource type="AudioStream" uid="uid://ci431ge48gn7p" path="res://Sound/B4.mp3" id="14_8lhpn"]
 
-[node name="Music Scene" type="Node2D" unique_id=1356975755]
+[node name="Music Scene" type="Control" unique_id=2009831047]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_on8qa")
 
 [node name="NoteMarker" type="Marker2D" parent="." unique_id=144175008]
@@ -17,12 +19,7 @@ position = Vector2(-300, -22)
 gizmo_extents = 21.9
 
 [node name="BackgroundControl" type="Control" parent="." unique_id=131209887]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+layout_mode = 1
 offset_top = -19.0
 offset_right = 40.0
 offset_bottom = 21.0
@@ -33,12 +30,12 @@ theme = ExtResource("8_13bi0")
 [node name="Panel" type="Panel" parent="BackgroundControl" unique_id=1887872542]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -1.797
-anchor_bottom = -1.797
-offset_left = -422.0
-offset_top = -239.12
-offset_right = 427.0
-offset_bottom = 240.88
+anchor_left = -10.55
+anchor_top = -7.7750006
+anchor_right = 10.675
+anchor_bottom = 4.2250004
+offset_top = 3.0517578e-05
+offset_bottom = -1.5258789e-05
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundControl" unique_id=640452237]
 position = Vector2(0, -75)
@@ -46,7 +43,7 @@ texture = ExtResource("1_7qfqm")
 metadata/_edit_lock_ = true
 
 [node name="KeyControl" type="Control" parent="." unique_id=1415381902]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -171,5 +168,6 @@ horizontal_alignment = 1
 
 [node name="NotesContainer" type="HBoxContainer" parent="." unique_id=1606952807]
 unique_name_in_owner = true
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

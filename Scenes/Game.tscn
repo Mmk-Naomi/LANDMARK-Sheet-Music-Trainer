@@ -31,7 +31,6 @@ script = ExtResource("1_kldst")
 [node name="Control" type="Control" parent="." unique_id=79917232]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -47,7 +46,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
 color = Color(0.050980393, 0.011764706, 0.14117648, 1)
@@ -55,26 +54,43 @@ metadata/_edit_lock_ = true
 
 [node name="MusicScene" parent="Control" unique_id=1195478229 instance=ExtResource("1_gl6un")]
 unique_name_in_owner = true
-position = Vector2(640, 360)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17500001
+anchor_top = 0.048
+anchor_right = 0.832
+anchor_bottom = 1.0
+offset_left = 416.0
+offset_top = 325.44
+offset_right = -424.95996
+offset_bottom = -360.0
 
 [node name="Camera2D" type="Camera2D" parent="Control" unique_id=1454012269]
 position = Vector2(640, 360)
 
 [node name="ScoreLabelPanel" type="Panel" parent="Control" unique_id=1755488689]
-layout_mode = 0
-offset_left = 1129.0
-offset_top = 17.0
-offset_right = 1258.0
-offset_bottom = 72.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8802501
+anchor_top = 0.015277778
+anchor_right = 0.98125
+anchor_bottom = 0.09
+offset_left = 0.27990723
+offset_bottom = 0.27999496
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="Control/ScoreLabelPanel" unique_id=1588708049]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_71axn")
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.95300007
+anchor_bottom = 1.0
 offset_left = 55.0
 offset_top = 1.0
-offset_right = 123.0
-offset_bottom = 56.0
+offset_right = 0.06298828
+offset_bottom = 1.0
 pivot_offset = Vector2(50, 25)
 theme_override_font_sizes/font_size = 40
 text = "0"
@@ -88,18 +104,27 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_b2bpf")
 
 [node name="HiScoreLabelPanel" type="Panel" parent="Control" unique_id=640442666]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 14.0
-offset_right = 148.0
-offset_bottom = 69.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.019000001
+anchor_right = 0.116000004
+anchor_bottom = 0.096
+offset_left = 0.23999786
+offset_top = 0.31999874
+offset_right = -0.480011
+offset_bottom = -0.12000275
 theme = SubResource("Theme_2irst")
 
 [node name="HiScoreLabel" type="Label" parent="Control/HiScoreLabelPanel" unique_id=1184267863]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 119.0
-offset_bottom = 55.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.47200003
+anchor_right = 0.94400007
+anchor_bottom = 1.0
+offset_left = -3.472004
+offset_right = 0.055992126
 pivot_offset = Vector2(50, 25)
 theme_override_font_sizes/font_size = 40
 text = "0"
@@ -111,6 +136,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_bf53h")
 
 [node name="MenuPanel" type="Panel" parent="Control" unique_id=1655237915]
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.902
@@ -136,6 +162,7 @@ scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_bf53h")
 
 [node name="NoteButtonPanel" type="Panel" parent="Control" unique_id=1817740613]
+custom_minimum_size = Vector2(60, 50)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9250001
@@ -145,7 +172,7 @@ anchor_bottom = 0.97400004
 offset_left = -0.00012207031
 offset_top = 0.27996826
 offset_bottom = -0.44000244
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 0
 
 [node name="ShowActiveNote" type="TextureButton" parent="Control/NoteButtonPanel" unique_id=822373078]
@@ -161,6 +188,7 @@ offset_bottom = 150.67346
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("7_71axn")
+metadata/_edit_lock_ = true
 
 [node name="Cursor" type="Sprite2D" parent="Control" unique_id=2034181687]
 unique_name_in_owner = true
@@ -178,15 +206,13 @@ anchor_right = 0.147
 anchor_bottom = 1.0
 offset_bottom = -300.0
 grow_horizontal = 2
-grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
 [node name="ClefSprite" type="Sprite2D" parent="Control/ClefPanel" unique_id=967460159]
 unique_name_in_owner = true
-position = Vector2(0, 46)
+position = Vector2(78, 128)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("9_71axn")
-centered = false
 
 [node name="ActiveNotePanel" type="Panel" parent="Control" unique_id=1109867583]
 custom_minimum_size = Vector2(40, 100)
@@ -194,13 +220,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
 anchor_top = 0.22800002
-anchor_right = 1.0
+anchor_right = 0.973
 anchor_bottom = 1.0
 offset_left = 0.3199463
 offset_top = -0.16000366
-offset_right = -25.0
 offset_bottom = -300.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control/ActiveNotePanel" unique_id=705701161]
@@ -212,11 +237,13 @@ offset_right = -1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 120
 text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Control/MenuPanel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Control/NoteButtonPanel/ShowActiveNote" to="." method="_on_show_active_note_pressed"]

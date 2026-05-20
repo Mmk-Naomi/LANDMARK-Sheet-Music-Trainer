@@ -89,7 +89,6 @@ func new_game():
 		print("Current clef is treble")
 		clef_sprite.texture = treble_sprite
 		clef_sprite.scale = Vector2(0.30, 0.30)
-		clef_sprite.position = Vector2(-10, -5)
 		
 	#Set sprite to correct sprite, and rescale based on which sprite it is
 	if random_clef == 0:
@@ -97,7 +96,6 @@ func new_game():
 		print("Current clef is bass")
 		clef_sprite.texture = bass_sprite
 		clef_sprite.scale = Vector2(0.25, 0.25)
-		clef_sprite.position = Vector2(0, 45)
 		
 	GlobalVariables.random_clef_chosen.emit()
 		

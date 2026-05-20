@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name MusicScene
 
 var note_number := GlobalVariables.note_number
