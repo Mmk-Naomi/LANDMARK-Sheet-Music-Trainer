@@ -20,6 +20,7 @@ gizmo_extents = 21.9
 
 [node name="BackgroundControl" type="Control" parent="." unique_id=131209887]
 layout_mode = 1
+anchors_preset = 0
 offset_top = -19.0
 offset_right = 40.0
 offset_bottom = 21.0

@@ -4,8 +4,16 @@ extends TextureButton
 
 @onready var asp = $"../AudioStreamPlayer"
 
+func _ready() -> void:
+	OS.open_midi_inputs()
+	print(OS.get_connected_midi_inputs())
+
 func _process(delta: float) -> void:
 	key_pressed()
+	
+func _input(input_event):
+	if input_event is InputEventMIDI:
+		_midi_pressed(input_event)
 
 func _on_pressed() -> void:
 	GlobalVariables.player_note = note
@@ -38,8 +46,32 @@ func key_pressed() -> void:
 		key_pressed_aux()
 		
 func key_pressed_aux() -> void:
+	note = GlobalVariables.player_note
 	GlobalVariables.new_note = true
+	
 	choose_right_audio()
+	
+	asp.play()
+	
+func _midi_pressed(midi_event):
+	#TODO: Add MIDI functionality
+	print(midi_event)
+	
+	var all_notes : Dictionary = {60 : "C", 62 : "D", 64: "E", 65: "F", 67: "G", 69: "A", 71: "B", 73: "C"}
+	
+	#If note is in dictionary, store in midi_note. Otherwise, return and don't cause an error
+	if all_notes.has(midi_event.pitch):
+		var midi_note = all_notes[midi_event.pitch]
+		print("Pitch ", midi_note)
+		note = midi_note
+		choose_right_audio()
+		#When key is pressed, turn on one_note bool
+		#Start timer for 0.1 seconds, if it is still pressed restart timer
+		#If timer ends, move to next note and stop playing
+		
+		asp.play()
+	else:
+		return
 
 func choose_right_audio():
 	#Play the right audio depending on which key has been pressed
