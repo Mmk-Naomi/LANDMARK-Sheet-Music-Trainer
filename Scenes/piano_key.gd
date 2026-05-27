@@ -57,19 +57,26 @@ func _midi_pressed(midi_event):
 	#TODO: Add MIDI functionality
 	print(midi_event)
 	
-	var all_notes : Dictionary = {60 : "C", 62 : "D", 64: "E", 65: "F", 67: "G", 69: "A", 71: "B", 73: "C"}
+	var all_notes : Dictionary = {59 : "B", 57: "A", 55 : "G", 53: "F", 52: "E", 50: "D", 48: "C",
+		#Starting middle C
+		60 : "C", 62 : "D", 64: "E", 65: "F", 67: "G", 69: "A", 71: "B", 72: "C",}
 	
 	#If note is in dictionary, store in midi_note. Otherwise, return and don't cause an error
 	if all_notes.has(midi_event.pitch):
-		var midi_note = all_notes[midi_event.pitch]
-		print("Pitch ", midi_note)
-		note = midi_note
-		choose_right_audio()
-		#When key is pressed, turn on one_note bool
-		#Start timer for 0.1 seconds, if it is still pressed restart timer
-		#If timer ends, move to next note and stop playing
-		
-		asp.play()
+		if midi_event.message == 9: 
+			var midi_note = all_notes[midi_event.pitch]
+			print("Pitch ", midi_note)
+			# Code to play audio and move to next note
+			note = midi_note
+			GlobalVariables.player_note = note
+			GlobalVariables.new_note = true
+			choose_right_audio()
+			asp.play()
+			
+		# Do nothing unless a new note is being pressed
+		elif midi_event.message == 8:
+			return
+			
 	else:
 		return
 
