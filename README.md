@@ -1,4 +1,7 @@
 # LANDMARK-Sheet-Music-Trainer
+
+<img width="630" height="500" alt="landmark-cover-image" src="https://github.com/user-attachments/assets/53383da7-7b5d-4d17-a73d-5720d7660e69" />
+
 LANDMARK is a free and open-source sheet music training tool. Currently, it supports both the treble and bass clef and various difficulty modes for pianists of all ages. It was made with Godot and GDScript.
 
 Download here: [Releases](https://github.com/Mmk-Naomi/LANDMARK-Sheet-Music-Trainer/releases)
