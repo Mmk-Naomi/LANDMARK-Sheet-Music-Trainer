@@ -15,9 +15,14 @@ Instructions:
 
 Random notes:
 1. The game supports high scores for multiple difficulties. After you are familiar with beginner notes, try moving up to landmark or higher difficulties.
-2. After learning landmark notes, you should be able to approximate the name of almost every note in the treble and bass clefs. 
+2. After learning landmark notes, you should be able to approximate the name of almost every note in the treble and bass clefs.
 
-By Mmk Naomi Games.
+Keyboard support:
+1. This release adds MIDI keyboard support and computer keyboard support.
+2. You can use the A through J keys (representing C through B on the piano) to play without a MIDI keyboard.
+3. It has only been tested with the Akai MPK Mini II, so please submit an issue if you find one with your MIDI keyboard.
+
+By Zach Kluver.
 
 Licensing information on the Godot engine can be found here:
 https://godotengine.org/license/
