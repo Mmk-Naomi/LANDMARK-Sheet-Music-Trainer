@@ -59,7 +59,8 @@ func _midi_pressed(midi_event):
 	
 	var all_notes : Dictionary = {59 : "B", 57: "A", 55 : "G", 53: "F", 52: "E", 50: "D", 48: "C",
 		#Starting middle C
-		60 : "C", 62 : "D", 64: "E", 65: "F", 67: "G", 69: "A", 71: "B", 72: "C",}
+		60 : "C", 62 : "D", 64: "E", 65: "F", 67: "G", 69: "A", 71: "B", 72: "C",
+		74: "D", 76: "E", 77: "F", 79: "G", 81: "A", 83:"B", 84: "C"}
 	
 	#If note is in dictionary, store in midi_note. Otherwise, return and don't cause an error
 	if all_notes.has(midi_event.pitch):
